@@ -3,7 +3,6 @@ package com.appointment.appointment.entity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 public class Appointment {
@@ -11,7 +10,7 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idAppointment;
     @DateTimeFormat(pattern = "dd-mm-yyyy") //formatar a data de acordo com o formato BR
-    private Date date;
+    private String date;
     @DateTimeFormat(pattern = "00:00") //formatar hora
     private String startTime;
     @DateTimeFormat(pattern = "00:00") //formatar hora
@@ -27,7 +26,7 @@ public class Appointment {
 
     }
 
-    public Appointment(Long idAppointment, Date date, String startTime, String endTime, String problemDescription, String comments, Patient patient, Doctor doctor) {
+    public Appointment(Long idAppointment, String date, String startTime, String endTime, String problemDescription, String comments, Patient patient, Doctor doctor) {
         this.idAppointment = idAppointment;
         this.date = date;
         this.startTime = startTime;
@@ -46,11 +45,11 @@ public class Appointment {
         this.idAppointment = idAppointment;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

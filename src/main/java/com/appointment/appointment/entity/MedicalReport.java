@@ -35,6 +35,8 @@ public class MedicalReport {
         this.comments = comments;
     }
 
+    public MedicalReport() {}
+
     public String getData() {
         return data;
     }
